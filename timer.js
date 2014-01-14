@@ -20,7 +20,9 @@ var UpdateButton = function(){
 var StartButton = function(){
     clearInterval(_interval);
     var index = this.index;
-    _elm.style.fontWeight = 'normal';
+    if(_elm !== null){
+        _elm.style.fontWeight = 'normal';
+    }
     _curIndex = +index;
     _elm = document.getElementById('button' + _curIndex);
     _elm.style.fontWeight = 'bold';
@@ -42,17 +44,17 @@ var AddTimer = function(){
     button.timer = 0;
     button.onclick = StartButton;        
     button.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
-            _curIndex = _index;
-            _index++;
-            document.body.appendChild(button);
+    _curIndex = _index;
+    _index++;
+    document.body.appendChild(button);
 
-            button.click();
-            };
+    button.click();
+};
 
-            var Init = function(){
-                var button = document.getElementById('jsnewtimer');
-                button.onclick = AddTimer;
-                _elmTotalTime = document.getElementById('jstotaltime');
-            };
+var Init = function(){
+    var button = document.getElementById('jsnewtimer');
+    button.onclick = AddTimer;
+    _elmTotalTime = document.getElementById('jstotaltime');
+};
 
-            Init();
+Init();
