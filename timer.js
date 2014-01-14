@@ -34,6 +34,7 @@ var AddTimer = function(){
     var g = Math.floor((Math.random()*255));
     var b = Math.floor((Math.random()*255));
     var title = window.prompt('title', '');
+    var sum = r+b+g;
 
     var button = document.createElement('button');
     button.setAttribute('type','button');
@@ -44,10 +45,12 @@ var AddTimer = function(){
     button.timer = 0;
     button.onclick = StartButton;        
     button.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+    if(sum < 300){
+        button.style.color= '#fff';
+    }
     _curIndex = _index;
     _index++;
     document.body.appendChild(button);
-
     button.click();
 };
 
